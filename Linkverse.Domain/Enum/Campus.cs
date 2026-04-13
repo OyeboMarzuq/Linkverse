@@ -8,7 +8,8 @@ namespace Linkverse.Domain.Enum
 {
     public enum Campus
     {
-        LagosStateUniversityOjoCampus = 1,
+        FederalUniversityOfAgricultureAbeokuta = 1,
+        LagosStateUniversityOjoCampus,
         LagosStateUniversityEpeCampus,
         LagosStateUniversityLikejaMedicalSchool,
         LagosStateUniversityBadagaryCampus,

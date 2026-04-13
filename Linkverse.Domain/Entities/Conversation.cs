@@ -17,7 +17,6 @@ namespace Linkverse.Domain.Entities
 
         public User ParticipantA { get; set; } = null!;
         public User ParticipantB { get; set; } = null!;
-        public Service? Service { get; set; }
         public ICollection<ChatMessage> Messages { get; set; } = new List<ChatMessage>();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Azure.Core;
 using Linkverse.Application.DTO;
 using Linkverse.Application.DTO.UserDTO;
+using Linkverse.Application.Interfaces;
 using Linkverse.Domain.Entities;
 using Linkverse.Persistence.Context;
 using Microsoft.AspNetCore.Identity;

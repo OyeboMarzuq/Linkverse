@@ -1,5 +1,6 @@
 ﻿using Linkverse.Application.DTO;
 using Linkverse.Application.DTO.UserDTO;
+using Linkverse.Application.Interfaces;
 using Linkverse.Domain.Entities;
 using Linkverse.Persistence.Services;
 using Microsoft.AspNetCore.Authorization;

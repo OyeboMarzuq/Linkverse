@@ -2,7 +2,7 @@
 using Linkverse.Application.DTO.UserDTO;
 using Linkverse.Domain.Entities;
 
-namespace Linkverse.Persistence.Services
+namespace Linkverse.Application.Interfaces
 {
     public interface IAuthService
     {
