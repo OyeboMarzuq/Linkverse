@@ -1,0 +1,6 @@
+@Linkverse.WebAPI_HostAddress = http://localhost:5147
+
+GET {{Linkverse.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
