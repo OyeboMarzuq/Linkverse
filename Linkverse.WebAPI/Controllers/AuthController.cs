@@ -1,6 +1,9 @@
-﻿using Linkverse.Application.DTO;
+﻿using FluentValidation;
+using Linkverse.Application.Common.Responses;
+using Linkverse.Application.DTO;
+using Linkverse.Application.DTO.ProviderDTO;
 using Linkverse.Application.DTO.UserDTO;
-using Linkverse.Application.Interfaces;
+using Linkverse.Application.Interfaces.IServices;
 using Linkverse.Domain.Entities;
 using Linkverse.Persistence.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -19,13 +22,35 @@ namespace Linkverse.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IAuthService authService) : ControllerBase
+    public class AuthController : ControllerBase
     {
+        private readonly IAuthService _authService;
+
+        public AuthController(
+            IAuthService authService)
+
+        {
+            _authService = authService;
+        }
+
+        // Creates User (Role=Provider) + ServiceProviders profile + BankDetails atomically.
+        // Returns tokens immediately — agent is logged in straight after signup.
+        // Same /login endpoint works for all roles.
+        [HttpPost("register-agent")]
+        [EnableRateLimiting("per-user")]
+        [ProducesResponseType(typeof(BaseResponse<TokenResponseDto>), 201)]
+        [ProducesResponseType(typeof(BaseResponse<TokenResponseDto>), 409)]
+        [ProducesResponseType(typeof(BaseResponse<TokenResponseDto>), 400)]
+        public async Task<IActionResult> RegisterAgent([FromBody] AgentRegisterDto request)
+        {
+            var response = await _authService.RegisterAgentAsync(request);
+            return StatusCode(response.StatusCode ?? 200, response);
+        }
 
         [HttpPost("register")]
         public async Task<ActionResult<User>> Regsister(UserDto request)
         {
-            var user = await authService.RegisterAsync(request);
+            var user = await _authService.RegisterAsync(request);
             if (user is null)
                 return BadRequest("Username Already Exists.");
 
@@ -33,11 +58,13 @@ namespace Linkverse.WebAPI.Controllers
 
         }
 
+        //Attempt too put a agent signup register
+
         [HttpPost("login")]
         [EnableRateLimiting("per-user")]
-        public async Task<ActionResult<TokenResponseDto>> Login(UserDto request)
+        public async Task<ActionResult<TokenResponseDto>> Login(LoginDto request)
         {
-            var result = await authService.LoginAsync(request);
+            var result = await _authService.LoginAsync(request);
             if (result is null)
                 return BadRequest("Invalid Username Or Password.");
 
@@ -47,7 +74,7 @@ namespace Linkverse.WebAPI.Controllers
         [HttpPost("refresh-token")]
         public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request)
         {
-            var result = await authService.RefreshTokenAsync(request);
+            var result = await _authService.RefreshTokenAsync(request);
             if(result is null || result is null || result.RefreshToken is null)
                 return Unauthorized("Invalid refresh token");
 

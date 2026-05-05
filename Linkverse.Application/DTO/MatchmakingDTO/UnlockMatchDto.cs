@@ -9,7 +9,10 @@ namespace Linkverse.Application.DTO.MatchmakingDTO
 {
     public class UnlockMatchDto
     {
-        [Required(ErrorMessage = "Match ID is required.")]
+        [Required(ErrorMessage = "Match profile ID is required.")]
         public Guid MatchId { get; set; }
+
+        [Required(ErrorMessage = "Unlock token is required.")]
+        public string UnlockToken { get; set; } = string.Empty;
     }
 }

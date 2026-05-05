@@ -13,6 +13,7 @@ namespace Linkverse.Application.Common.Responses
         public T? Data { get; set; }
         public List<string>? Errors { get; set; }
         public int? StatusCode { get; set; }
+        public string Email { get; set; }
 
         public static BaseResponse<T> Succes(T data, string message = "Request successful", int statusCode = 200)
         {

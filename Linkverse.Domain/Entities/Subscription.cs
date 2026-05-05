@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Linkverse.Domain.Entities
 {
-    public class Subscription
+    public class Subscription : BaseEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid UserId { get; set; }
@@ -19,5 +19,6 @@ namespace Linkverse.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public User User { get; set; } = null!;
+        public string PaymentReference { get; set; }
     }
 }

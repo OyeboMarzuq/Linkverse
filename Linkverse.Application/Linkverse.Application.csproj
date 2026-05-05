@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Linkverse.Domain\Linkverse.Domain.csproj" />
+    <PackageReference Include="FluentValidation" Version="9.5.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
+    <ProjectReference Include="..\Linkverse.Domain\Linkverse.Domain.csproj" />
   </ItemGroup>
 
 </Project>

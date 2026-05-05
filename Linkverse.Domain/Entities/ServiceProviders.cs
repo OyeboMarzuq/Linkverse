@@ -11,7 +11,7 @@ namespace Linkverse.Domain.Entities
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid UserId { get; set; }
-        public ProviderType Type { get; set; }
+        public Occupation Type { get; set; }
         public string BusinessName { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string? Location { get; set; }

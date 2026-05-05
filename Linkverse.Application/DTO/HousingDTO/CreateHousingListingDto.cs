@@ -11,7 +11,7 @@ namespace Linkverse.Application.DTO.HousingDTO
     public class CreateHousingListingDto
     {
         [Required(ErrorMessage = "Title is required.")]
-        [StringLength(150, MinimumLength = 5, ErrorMessage = "Title must be between 5 and 150 characters.")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Title must be between 5 and 30 characters.")]
         public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Housing type is required.")]
@@ -31,7 +31,7 @@ namespace Linkverse.Application.DTO.HousingDTO
         [StringLength(200, MinimumLength = 3, ErrorMessage = "Location must be between 3 and 200 characters.")]
         public string Location { get; set; } = string.Empty;
 
-        [StringLength(1000, ErrorMessage = "Description cannot exceed 1,000 characters.")]
+        [StringLength(200, ErrorMessage = "Description cannot exceed 200 characters.")]
         public string? Description { get; set; }
 
         [StringLength(50, ErrorMessage = "Tag cannot exceed 50 characters.")]

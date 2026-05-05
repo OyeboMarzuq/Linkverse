@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Linkverse.Domain.Enum
 {
-    public enum ProviderType
+    public enum Religion
     {
-        Service,
-        Housing,
-        Matchmaking,
-        Notes
+        Islam = 1,
+        Christian,
+        Traditional,
+        NotApplicable
     }
 }

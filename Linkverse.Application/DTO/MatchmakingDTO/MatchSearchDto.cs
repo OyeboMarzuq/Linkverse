@@ -12,7 +12,7 @@ namespace Linkverse.Application.DTO.MatchmakingDTO
     {
         [Required(ErrorMessage = "Relationship type is required to search.")]
         public RelationshipType LookingFor { get; set; }
-        public string? ReligionPreference { get; set; }
+        public string ReligionPreference { get; set; }
         public string? HeightPreference { get; set; }
         public string? Department { get; set; }
 

@@ -9,7 +9,7 @@ namespace Linkverse.Domain.Enum
     public enum SubscriptionPlan
     {
         Intermediate = 1,
-        Student,
-        Premium
+        Premium,
+        Pro
     }
 }

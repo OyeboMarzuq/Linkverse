@@ -12,7 +12,7 @@ namespace Linkverse.Application.Common.Responses.ProviderResponses
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public string BusinessName { get; set; } = string.Empty;
-        public ProviderType Type { get; set; }
+        public Occupation? Occupation { get; set; }
         public string? Description { get; set; }
         public string? Location { get; set; }
         public string? LicenseNumber { get; set; }

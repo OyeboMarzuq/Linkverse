@@ -11,7 +11,7 @@ namespace Linkverse.Application.DTO.ProviderDTO
     {
         public Guid Id { get; set; }
         public string BusinessName { get; set; } = string.Empty;
-        public ProviderType Type { get; set; }
+        public Occupation Type { get; set; }
         public string? Location { get; set; }
         public bool IsVerified { get; set; }
         public double Rating { get; set; }

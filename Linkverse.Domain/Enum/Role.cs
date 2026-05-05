@@ -8,8 +8,9 @@ namespace Linkverse.Domain.Enum
 {
     public enum Role
     {
-        Admin,
-        User,
-        Provider
+        Admin = 1,
+        HousingAgent,
+        ServiceProvider,
+        User
     }
 }

@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linkverse.Application.Common.Responses.MatchmakingResponse
+namespace Linkverse.Application.DTO.MatchmakingDTO
 {
     public class PagedMatchResultDto
     {
-        public List<MatchResultDto> Items { get; set; } = new();
+        public List<MatchResultCardDto> Items { get; set; } = new();
         public int TotalCount { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }
+        public bool IsFallbackResult { get; set; }
+        public string? FallbackMessage { get; set; }
         public int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
     }
 }

@@ -16,6 +16,7 @@ namespace Linkverse.Domain.Entities
         public string? ReligionPreference { get; set; }
         public string? HeightPreference { get; set; }
         public int? MinAge { get; set; }
+        public Gender? Gender { get; set; }
         public int? MaxAge { get; set; }
         public string? Department { get; set; }
         public string? Bio { get; set; }
